@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>The DOM</title>
+  <style></style>
+  <script>
+    const JACK = 11, QUEEN = 12, KING = 13, ACE = 1;
+    const CLUB = 0, DIAMOND = 1, HEART = 2, SPADE = 3;
+    const BLUE_BACK = "back-blue-75-3.png";
+
+
+    function initialize() {
+      deck = generateStandardDeck();
+      flippedCardContainer = document.getElementById("flipped");
+    }
+
+
+    function generateStandardDeck() {
+      var deck = [];
+
+      for (var r = ACE; r < KING + 1; r++) {
+        for (var s = CLUB; s < SPADE + 1; s++) {
+          var card = {};
+          card.rank = r;
+          card.suit = s;
+          card.imgFile = r + "-" + s + ".png";
+          deck.push(card);
+        }
+      }
+
+      // shuffle array
+      for (var i = 0; i < deck.length; i++) {
+        var rand = Math.floor(Math.random() * deck.length);
+        var current = deck[rand];
+        deck[rand] = deck[i];
+        deck[i] = current;
+      }
+
+      return deck;
+    }
+
+
+    function flipCard() {
+      if (deck.length == 0) return;
+
+      var card = deck.pop();
+
+      var cardImage = document.createElement("img");
+      cardImage.src = "cardImages/" + card.imgFile;
+      flippedCardContainer.appendChild(cardImage);
+    }
+
+
+    function display() {}
+  </script>
+</head>
+<body onload="initialize();">
+  <img onclick="flipCard();" src="cardimages/back-blue-75-3.png" alt="">
+  <div id="flipped"></div>
+</body>
+</html>

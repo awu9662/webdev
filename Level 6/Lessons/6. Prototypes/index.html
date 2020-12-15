@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Prototypes</title>
+  <script>
+    function getRandomInteger(min, max) {
+      // inclusive
+      return Math.floor(Math.random() * (max - min + 1) + min);
+    }
+
+
+    function initialize()
+    {
+      cardsOutput = document.getElementById("cardsout");
+      theDeck = generateStandardDeck();
+      theDeck.shuffleDeck();
+
+      showDeck();
+    }
+
+
+    function showDeck()
+    {
+      while (theDeck.length > 0)
+      {
+        var tmpImg = document.createElement('img');
+
+        var tmpCard = theDeck.pop();
+        tmpImg.src = "cardimages/" + tmpCard.imageFileName;
+
+        cardsOutput.appendChild(tmpImg);
+      }
+    }
+  </script>
+  <script src="playingcards.js"></script>
+</head>
+<body onload="initialize();">
+  <div id="cardsout"></div>
+</body>
+</html>

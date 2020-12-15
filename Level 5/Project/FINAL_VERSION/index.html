@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<!-- Group members: Danish, Joshua -->
+<html lang="en">
+
+<head>
+  <title>High Quality Cheese Grater</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono|Overlock|Comfortaa|Bebas+Neue|Roboto&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="main.js" defer></script>
+  <script src="datafile.js" defer></script>
+</head>
+
+<body onload="displayReviews();">
+  <div class="topbar">
+    <a class="logo-a" href="#"><img src="img/logo3.png" class="logo" />Aaron's Tech Shop</a>
+
+    <span class="links">
+      <a href="#" class="link">Home</a>
+      <a href="#" class="link dead-link">Products</a>
+      <a href="#" class="link dead-link">Deals</a>
+      <span class="link" onclick="showCart();">Cart (<span id="cart-number">0</span>)</span>
+
+      <div class="cart-display">
+        <div class="cart-item-display"></div>
+        <div class="final-purchase">
+            <span id="cart-total-price">$0.00</span>
+            <button class="cart-button" onclick="buyCartItems();">Buy</button>
+        </div>
+      </div>
+    </span>
+  </div>
+
+  <div class="page">
+    <div class="product-name">Cheese Grater Pro</div>
+
+    <div class="image-container">
+      <img src="img/macpro.jpg" class="product-image" onclick="showImageGallery();" />
+      <div onclick="showImageGallery();">View product images</div>
+    </div>
+
+    <div class="image-gallery">
+      <img src="img/x_button.png" class="x-button" onclick="showImageGallery();">
+      <div class="all-images">
+        <img id="product-image" src="img/macpro.jpg" onclick="nextImage(1);" />
+        <div id="image-number"></div>
+
+        <button class="prevImage" onclick="nextImage(-1);">&#10094;</button>
+        <button class="nextImage" onclick="nextImage(1);">&#10095;</button>
+      </div>
+    </div>
+
+    <div class="main-content">
+      <div class="product-info">
+        <div>
+          The Cheese Grater Pro is a flagship cheese grater meant for cheese-enthusiasts (and non-cheese-enthusiasts) of
+          all kinds.
+          Equiped with a multitude of features, including a standby mode, keep-warm mode, microwave, and more!
+          For more information and how to handle the grater,
+          please consult our handy 1000-page manual at purchase (available
+          <a href="manual.html" target="_blank">electronically</a>
+          and in print).
+          <p>
+            Included components: Grater, power adapter, manual, stickers.
+          </p>
+        </div>
+
+        <div class="configs">
+          <div class="title-text">Customize Your Grater</div>
+          <h3>
+            Cheese Cores
+            <div class="tooltip">
+              Why do I need more cores?
+              <div class="tooltiptext">
+                More cores means you can have cheese grated faster!
+              </div>
+            </div>
+          </h3>
+          <div class="buttons">
+            <div class="current-config config-button" onclick="selectButton(0, 0);">6 cores <span
+                class="config-price"></span></div>
+            <div class="config-button" onclick="selectButton(0, 1);">12 cores <span class="config-price">+ $1000</span>
+            </div>
+            <div class="config-button" onclick="selectButton(0, 2);">18 cores <span class="config-price">+ $2000</span>
+            </div>
+            <div class="config-button" onclick="selectButton(0, 3);">24 cores <span class="config-price">+ $6000</span>
+            </div>
+            <div class="config-button" onclick="selectButton(0, 4);">32 cores <span class="config-price">+ $8000</span>
+            </div>
+            <div class="config-button" onclick="selectButton(0, 5);">64 cores <span class="config-price">+ $21000</span>
+            </div>
+          </div>
+
+          <h3>
+            Memory
+            <div class="tooltip">
+              Why do I need more memory?
+              <div class="tooltiptext">
+                Memory is essential to grate multiple cheeses at once! More cores + more memory = more grated cheese!
+                (5GB
+                = 1 kg of cheese)
+              </div>
+            </div>
+          </h3>
+          <div class="buttons">
+            <div class="current-config config-button" onclick="selectButton(1, 0);">16 GB <span
+                class="config-price"></span></div>
+            <div class="config-button" onclick="selectButton(1, 1);">32 GB <span class="config-price">+ $400</span>
+            </div>
+            <div class="config-button" onclick="selectButton(1, 2);">64 GB <span class="config-price">+ $800</span>
+            </div>
+            <div class="config-button" onclick="selectButton(1, 3);">128 GB <span class="config-price">+ $2500</span>
+            </div>
+            <div class="config-button" onclick="selectButton(1, 4);">256 GB<span class="config-price">+ $5000</span>
+            </div>
+            <div class="config-button" onclick="selectButton(1, 5);">512 GB <span class="config-price">+ $10000</span>
+            </div>
+            <div class="config-button" onclick="selectButton(1, 6);">1024 GB <span class="config-price">+ $20000</span>
+            </div>
+          </div>
+
+          <h3>
+            Storage
+            <div class="tooltip">
+              Why do I need more storage?
+              <div class="tooltiptext">
+                How much cheese do you want to hold? More storage means more space for storing cheese.
+              </div>
+            </div>
+          </h3>
+          <div class="buttons">
+            <div class="current-config config-button" onclick="selectButton(2, 0);">8 KG <span
+                class="config-price"></span></div>
+            <div class="config-button" onclick="selectButton(2, 1);">16 KG <span class="config-price">+ $400</span>
+            </div>
+            <div class="config-button" onclick="selectButton(2, 2);">64 KG <span class="config-price">+ $1000</span>
+            </div>
+            <div class="config-button" onclick="selectButton(2, 3);">128 KG <span class="config-price">+ $2100</span>
+            </div>
+            <div class="config-button" onclick="selectButton(2, 4);">512 KG<span class="config-price">+ $3400</span>
+            </div>
+            <div class="config-button" onclick="selectButton(2, 5);">1000 KG <span class="config-price">+ $10000</span>
+            </div>
+            <div class="config-button" onclick="selectButton(2, 6);">2000 KG <span class="config-price">+ $20000</span>
+            </div>
+          </div>
+
+          <h3>
+            Wheels
+            <div class="tooltip">
+              Why do I need wheels?
+              <div class="tooltiptext">
+                Wheels add extra portability to your grater.
+              </div>
+            </div>
+          </h3>
+          <div class="buttons">
+            <div class="current-config config-button" onclick="selectButton(3, 0);">No wheels <span
+                class="config-price"></span></div>
+            <div class="config-button" onclick="selectButton(3, 1);">Wheels <span class="config-price">+ $400</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="review-area">
+        <div class="reviews">
+          <span class="title-text">Reviews</span>
+          <div id="all-reviews"></div>
+          <div id="new-review">
+            <div class="small-title-text">Review this product</div>
+            <div>Share your thoughts with other people</div>
+            <button onclick="composeReview(true);">Write a review</button>
+          </div>
+        </div>
+        <div class="review-popup">
+          <img src="img/x_button.png" onclick="composeReview(false);" class="x-button">
+          <div class="title-text">Write your review</div>
+          <form id="review-form">
+            <label for="name">Your Name:</label>
+            <input type="text" name="name" id="name" maxlength="100">
+            <br><br>
+
+            <label for="title">Title:</label>
+            <input type="text" name="title" id="title" maxlength="100">
+            <br><br>
+
+            <label for="">Rating:</label>
+            <span id="reviewFormRating">
+              <img src="img/white_star.png" onclick="clickedOnStars(0);" onmouseover="lightUpStarsInReview('on', 0);"
+                onmouseout="lightUpStarsInReview('off', 0);">
+              <img src="img/white_star.png" onclick="clickedOnStars(1);" onmouseover="lightUpStarsInReview('on', 1);"
+                onmouseout="lightUpStarsInReview('off', 1);">
+              <img src="img/white_star.png" onclick="clickedOnStars(2);" onmouseover="lightUpStarsInReview('on', 2);"
+                onmouseout="lightUpStarsInReview('off', 2);">
+              <img src="img/white_star.png" onclick="clickedOnStars(3);" onmouseover="lightUpStarsInReview('on', 3);"
+                onmouseout="lightUpStarsInReview('off', 3);">
+              <img src="img/white_star.png" onclick="clickedOnStars(4);" onmouseover="lightUpStarsInReview('on', 4);"
+                onmouseout="lightUpStarsInReview('off', 4);">
+            </span>
+            <br><br>
+
+            <label for="description">Description:</label>
+            <textarea type="" name="description" id="description" rows="8"></textarea>
+          </form>
+          <br>
+          <button onclick="submitReview();">Submit</button>
+        </div>
+        <div class="thankyou-popup">
+          <span>Thank you!</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+  </footer>
+
+  <div class="purchase-area">
+    <div class="purchase-area-content">
+      <span class="purchase-price">$5999.99</span>
+      <button class="cart-button" onclick="addToCart();">Add to cart</button>
+    </div>
+  </div>
+</body>
+
+</html>

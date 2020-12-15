@@ -1,0 +1,11 @@
+.columnscontainer {
+  display: block;
+  margin: auto;
+  text-align: center;
+}
+
+.column {
+  display: inline-block;
+  width: 25%;
+  vertical-align: top;
+}

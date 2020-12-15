@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Javascript Classes</title>
+  <script>
+    function initialize() {
+      zooForm = document.getElementById("zoo");
+      listOutput = document.getElementById("animallist");
+
+      animalList = [new Animal("Joe", "New York"), new Animal("Kodo", "Arizona")];
+
+      display();
+    }
+
+
+    function Animal(name, location) {
+      this.name = name;
+      this.location = location;
+    }
+
+
+    function checkValuesEntered() {
+      var name = zooForm.animalname.value.trim();
+      var location = zooForm.animallocation.value.trim();
+      if (name == "" || location == "")
+        return false;
+
+      return true;
+    }
+
+
+    function addAnimal() {
+      if (!checkValuesEntered()) {
+        alert("Please enter a name and location for your animal.");
+        return;
+      }
+
+
+      animalList.push(new Animal(zooForm.animalname.value, zooForm.animallocation.value));
+
+      zooForm.animalname.value = "";
+      zooForm.animallocation.value = "";
+
+      display();
+    }
+
+
+    function deleteAnimal() {
+      var index = zooForm.animalindex.value.trim();
+
+      if (index < 0 || index >= animalList.length) {
+        alert("Please enter a valid index.");
+        return;
+      }
+
+      animalList.splice(index, 1);
+
+      display();
+    }
+
+
+    function updateAnimal() {
+      var index = zooForm.animalindex.value.trim();
+
+      if (index < 0 || index >= animalList.length) {
+        alert("Please enter a valid index.");
+        return;
+      }
+
+      if (!checkValuesEntered()) {
+        alert("Please enter a new name and location for your animal.");
+        return;
+      }
+
+      animalList[index].name = zooForm.animalname.value;
+      animalList[index].location = zooForm.animallocation.value;
+
+      display();
+    }
+
+
+    function display() {
+      listOutput.innerHTML = "";
+
+      for (var i = 0; i < animalList.length; i++) {
+        listOutput.innerHTML += `${i}: ${animalList[i].name} lives in ${animalList[i].location}.`;
+        if (i != animalList.length) listOutput.innerHTML += "<br />";
+      }
+    }
+  </script>
+</head>
+<body onload="initialize();">
+  <h1>The Zoo</h1>
+  <hr />
+
+  <form id="zoo">
+    Animal Index: <input type="text" name="animalindex">
+    Animal Name: <input type="text" name="animalname">
+    Animal Location: <input type="text" name="animallocation">
+  </form>
+  <button onclick="addAnimal();">Add animal</button>
+  <button onclick="updateAnimal();">Update animal</button>
+  <button onclick="deleteAnimal();">Delete animal</button>
+  <hr />
+
+  <div id="animallist"></div>
+</body>
+</html>

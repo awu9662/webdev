@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Modular Code</title>
+  <style>
+    body {
+      text-align: center;
+    }
+
+    .thumb {
+      width: 12%;
+    }
+
+    .arrow {
+      width: 8%;
+    }
+
+    #mainimg {
+      width: 50%;
+    }
+
+    #caption {
+      font-size: 24px;
+      font-weight: bold;
+    }
+  </style>
+  <script>
+    function initialize() {
+      mainImage = document.getElementById("mainimg");
+      captionOutput = document.getElementById("caption");
+      infoOutput = document.getElementById("info");
+      itemThumbs = document.getElementsByClassName("thumb");
+
+      document.getElementById("pagetitle").innerHTML = pageTitle;
+
+      currentIndex = 0;
+      offset = 0;
+
+      display();
+    }
+
+
+    function moveOffset(index) {
+      offset += index;
+
+      if (offset < 0) offset = 0;
+      if (offset >= itemList.length - 3) offset = itemList.length - 3;
+
+      display();
+    }
+
+
+    function selectItem(thumbIndex) {
+      currentIndex = offset + thumbIndex;
+
+      display();
+    }
+
+
+    function display() {
+      mainImage.src = "img/" + itemList[currentIndex].itemImage;
+      captionOutput.innerHTML = itemList[currentIndex].itemName;
+      infoOutput.innerHTML = itemList[currentIndex].itemInfo;
+
+      for (var i = 0; i < itemThumbs.length; i++) {
+        itemThumbs[i].src = "img/" + itemList[i + offset].itemImage;
+      }
+    }
+  </script>
+  <script src="itemdata.js" defer></script>
+</head>
+<body onload="initialize();">
+  <h1 id="pagetitle"></h1>
+  <img src="" alt="" id="mainimg">
+  <div id="caption"></div>
+  <div id="info"></div>
+  <hr />
+
+  <img onclick="moveOffset(-1);" src="img/backward.png" alt="" class="arrow">
+  <img onclick="selectItem(0);" src="" alt="" class="thumb">
+  <img onclick="selectItem(1);" src="" alt="" class="thumb">
+  <img onclick="selectItem(2);" src="" alt="" class="thumb">
+  <img onclick="moveOffset(1);" src="img/forward.png" alt="" class="arrow">
+</body>
+</html>

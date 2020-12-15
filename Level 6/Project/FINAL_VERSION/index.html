@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Corner Kings</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono|Noto+Sans|Anonymous+Pro&display=swap" rel="stylesheet">
+  <script src="init.js" defer></script>
+  <script src="main.js" defer></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body onload="loadPage();">
+  <div class="page">
+    <div class="menu-icon" onclick="showMenu();"><img src="img/menu.svg" alt=""></div>
+    <h1 class="page-title">Kings in the Corners</h1>
+
+    <div class="board">
+      <div class="grid"><img onclick="clickedOnBoard(0);" src="img/king.png".png" class="card empty king"></div>
+      <div class="grid"><img onclick="clickedOnBoard(1);" src="img/queen.png" class="card empty queen"></div>
+      <div class="grid"><img onclick="clickedOnBoard(2);" src="img/queen.png" class="card empty queen"></div>
+      <div class="grid"><img onclick="clickedOnBoard(3);" src="img/king.png" class="card empty king"></div>
+      <div class="grid"><img onclick="clickedOnBoard(4);" src="img/jack.png" class="card empty jack"></div>
+      <div class="grid"><img onclick="clickedOnBoard(5);" src="img/blue_back.png" class="card empty"></div>
+      <div class="grid"><img onclick="clickedOnBoard(6);" src="img/blue_back.png" class="card empty"></div>
+      <div class="grid"><img onclick="clickedOnBoard(7);" src="img/jack.png" class="card empty jack"></div>
+      <div class="grid"><img onclick="clickedOnBoard(8);" src="img/jack.png" class="card empty jack"></div>
+      <div class="grid"><img onclick="clickedOnBoard(9);" src="img/blue_back.png" class="card empty"></div>
+      <div class="grid"><img onclick="clickedOnBoard(10);" src="img/blue_back.png" class="card empty"></div>
+      <div class="grid"><img onclick="clickedOnBoard(11);" src="img/jack.png" class="card empty jack"></div>
+      <div class="grid"><img onclick="clickedOnBoard(12);" src="img/king.png" class="card empty king"></div>
+      <div class="grid"><img onclick="clickedOnBoard(13);" src="img/queen.png" class="card empty queen"></div>
+      <div class="grid"><img onclick="clickedOnBoard(14);" src="img/queen.png" class="card empty queen"></div>
+      <div class="grid"><img onclick="clickedOnBoard(15);" src="img/king.png" class="card empty king"></div>
+    </div>
+
+    <div class="board2">
+      <div>
+        <div class="grid"><img src="img/blue_back.png" class="card" id="deck"></div>
+        <div id="deckCount"></div>
+      </div>
+
+      <div class="buttons">
+        <div><span>Score: <span id="scoreDisplay"></span></span></div>
+
+        <button onclick="undo();">Undo</button>
+        <button onclick="reset();">Restart</button>
+        <button onclick="cheatModeToggle();" id="cheats-button">Cheats</button>
+      </div>
+
+      <div>
+        <div class="grid"><img src="img/red_back.png" class="card" id="discardDeck" onclick="burnCard();"></div>
+        <div id="discardCount"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="overlay startscreen">
+    <div>
+      <h1>Kings in the Corner</h1>
+
+      <div class="startscreen-img">
+        <img src="img/JC.png" alt="">
+        <img src="img/QH.png" alt="">
+        <img src="img/KS.png" alt="">
+      </div>
+
+      <div class="overlay-block" onclick="startGame();">
+        Play Game
+      </div>
+      <div class="overlay-block" onclick="showRules();">
+        How to Play
+      </div>
+      <div class="overlay-block" onclick="showSettings();">
+        Settings
+      </div>
+    </div>
+  </div>
+
+  <div class="overlay howtoplay">
+    <div class="overlay-block">How to Play</div>
+
+    <div class="howtoplay-content">
+      <div class="menu-icon" onclick="showMenu();"><img src="img/menu.svg" alt=""></div>
+
+      <h2>Basics</h2>
+      <div>
+        - Start with a shuffled 52-card deck
+        <br /><br />
+        - Everytime you draw a card, you have to place it somewhere on the 4x4 board (cards are drawn automatically)
+        <br /><br />
+        - Kings, Queens, and Jacks can only be placed on their respective spots, as shown on the board<br />
+        (Kings in the corner, Queens in the left and right, Jacks in the top and bottom)
+        <br /><br />
+        - Other cards can be placed anywhere, including the royalty spots
+        <br /><br />
+        - Once the entire board is filled, removal phase starts
+
+        <h2>Removal Phase</h2>
+        - Removal phase is indicated when no card is drawn
+        <br /><br />
+        - Select a 10 or two cards that add up to 10 to remove them from the board (aces = 1)
+        <br /><br />
+        - Once all possible cards are removed, continue drawing and placing cards
+
+        <h2>Winning</h2>
+        - Drawing cards, placing cards, and removal phase all repeat until the game is lost or won
+        <br /><br />
+        - The game is won when all the picture cards are in the correct spot and the center of the board is empty
+        <br /><br />
+        - The game is lost when a card can't be placed or removed
+      </div>
+    </div>
+  </div>
+
+  <div class="overlay settings">
+    <div class="overlay-block">Settings</div>
+
+    <div class="settings-content">
+      <div class="menu-icon" onclick="showMenu();"><img src="img/menu.svg" alt=""></div>
+
+      <div class="toggle-container">
+        <div>Disable Animations</div>
+        <div class="slider-container">
+          <span class="slider" onclick="disableAnimations();"></span>
+        </div>
+      </div>
+
+      <div class="toggle-container">
+        <div>Enable Cheats</div>
+        <div class="slider-container">
+          <span class="slider" onclick="enableCheats();"></span>
+        </div>
+      </div>
+
+      <h2>How to use cheats?</h2>
+      <div>
+        Turning this on enables a button on the board that lets you burn cards. <br />
+        When that button is on, click on the discard pile (red card back) to burn the current card
+        - can't burn picture cards.
+        <br /><br />
+        Use at your own risk. Cheats may break the game (probably not).
+      </div>
+    </div>
+  </div>
+
+  <div class="overlay gameover">
+    <div class="gameover-message">
+      <div id="game-status">
+        You Win
+      </div>
+      <div>
+        Click anywhere to see the board
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

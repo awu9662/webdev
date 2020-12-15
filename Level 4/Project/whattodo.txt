@@ -1,0 +1,20 @@
+HTML
+    - draw a 3x3 grid using a table element
+    - give each td an onclick, which runs a function in JS
+
+JS
+    - use a variable to keep track of whose turn it is for drawing either a X
+    or O depending on what the player chose initially
+    - the computer will automatically play after the player makes a move
+    - computer will use an while loop until it can make a legal move
+
+Functionality of gameboard
+    - use two lists track the board (1 or each layer); 0: empty, "x": X, "o": O
+    - the first one will always be used first; if a position on the first layer is taken,
+    the second layer will be used next; if that is taken then that position was "claimed"
+    - to prevent occupying another layer if the other player just occupied it last turn,
+    a list will track how many turns each position has been occupied for
+
+How to determine winner
+    - if statements will check if certain indices of any of the two lists equal all X or all O
+    (such as indices 0, 1, and 2 all equaling X, so X wins)

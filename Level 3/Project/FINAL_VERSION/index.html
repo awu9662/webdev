@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<!-- group members: Joshua Lenander & Steven Shannon -->
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="main.css" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto|Supermercado+One&display=swap" rel="stylesheet">
+    <script src="index.js"></script>
+    <title>Xtreme Xtreme Rock Xtreme Paper Xtreme Scissors</title>
+  </head>
+  <body onload="initialize();">
+    <div>
+      <table class="cardTable">
+        <tr>
+          <td><img src="img/rock.PNG" /></td>
+          <td><img src="img/paper.PNG" /></td>
+          <td><img src="img/scissors.PNG" /></td>
+        </tr>
+        <tr>
+          <td id="computerRockDisplay"></td>
+          <td id="computerPaperDisplay"></td>
+          <td id="computerScissorsDisplay"></td>
+        </tr>
+        <tr>
+            <td colspan="3" id="computerType">Computer's hand</td>
+          </tr>
+      </table>
+    </div>
+
+    <div class="center">
+      <div id="computerCardToDisplay"></div>
+      <div id="roundStatusDisplay"></div>
+      <div id="playerCardToDisplay"></div>
+      <div id="lostCause"></div>
+    </div>
+
+    <div id="bottom">
+      <table class="cardTable">
+        <tr>
+          <td colspan="3">Your hand</td>
+        </tr>
+        <tr>
+          <td id="rockDisplay"></td>
+          <td id="paperDisplay"></td>
+          <td id="scissorsDisplay"></td>
+        </tr>
+        <tr class="imageRow">
+          <td id="rock"><img src="img/rock.PNG" onclick="selectCard('rock');" /></td>
+          <td id="paper"><img src="img/paper.PNG" onclick="selectCard('paper');" /></td>
+          <td id="scissors"><img src="img/scissors.PNG" onclick="selectCard('scissors');" /></td>
+        </tr>
+      </table>
+
+      <div id="message"></div>
+      <button onclick="toggleBuildMode();" id="buildModeButton">Build Mode - OFF</button>
+      <button onclick="reset();">Reset</button>
+    </div>
+
+    <div id="hideButtonRightContainer"><button id="hideButtonRight" onclick="hideBar('right')">Hide &gt;</button></div>
+    <div id="sidenav-right">
+      <table>
+          <th>Move # |</th>
+          <th>Player |</th>
+          <th>Status |</th>
+          <th>Computer</th>
+        </tr>
+      </table>
+      <hr>
+      <table id="log"></table>
+    </div>
+
+    <div id="hideButtonLeftContainer"><button id="hideButtonLeft" onclick="hideBar('left')">&lt; Hide</button></div>
+    <div id="sidenav-left">
+      <div id="instructionText">
+        <h2>Rules</h2>
+        This is Rock Paper Scissors (Xtreme Edition).
+        <br><br>
+        You play against a computer and start with the same number of "cards."
+        The game is simple: you choose one of three cards (rock, paper, or scissors).
+        <br><br>
+        The winner is determined by the following: paper > rock > scissors > paper.
+        <br><br>
+        The winner of each round obtains the opponent's card and gets back their own.
+        <br><br>
+        A player wins the entire match if the opponent has no cards remaining.
+
+        <h3>Additional rules:</h3>
+        If a player plays the same card three times in a row, that card will "break,"
+        meaning that one card will be removed (only that one card, not the entire type of card).
+        <h4>Builders</h4>
+        If you toggle on Build Mode, you can select two cards to trade for the other one
+        (i.e. You can trade rock and scissors in exchange for paper).
+        <br><br>
+        The two selected cards will be deducted, while the other card will be increased
+        (both by 1).
+        <br><br>
+        The computer will also build if it runs out of a certain type of card.
+        Its cards numbers will be highlighted when it does so to show what happened.
+
+        <h4>Intelligent Computer</h4>
+        If this optional gameplay enhancement is enabled, the computer will play "smart",
+        meaning it will try avoid breaking cards and playing cards you don't have.
+        <br><br>
+        The computer will only build cards if this option is enabled.
+        <br><br>
+      </div>
+      <div id="afterInstruction"></div>
+      <div>
+        <button id="instructionButton" onclick="displayInstructions();">
+          I know the rules
+        </button>
+      </div>
+      <hr>
+      <h2>Extras</h2>
+      <div class="forms">
+        <form id="numCardsForm">
+          <h4>Custom starting cards: </h4>
+          Rocks: <input type="number" name="nRock" min="1" value="5"><br>
+          Papers: <input type="number" name="nPaper" min="1" value="5"><br>
+          Scissors: <input type="number" name="nScissors" min="1" value="5"><br>
+          <br>
+          <label>
+            Intelligent computer (kind of) <input type="checkbox" name="smartComputer">
+          </label>
+
+          <br><br>
+        </form>
+        <button onclick="readNumCardsForm();">New Game</button>
+      </div>
+      <br><br><br>
+    </div>
+
+  </body>
+</html>

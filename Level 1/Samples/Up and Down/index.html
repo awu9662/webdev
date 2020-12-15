@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+	<!-- this is a comment -->
+	<head>
+		<title></title>
+		<style></style>
+		<script>
+			function initialize() {
+				counter = document.getElementById("counter");
+				number = 0;
+			}
+		
+			function plusOne() {
+			number += 1;
+				counter.innerHTML = number;
+			}
+			
+			function minusOne() {
+			number -= 1;
+				counter.innerHTML = number;
+			}
+		</script>
+	</head>
+
+	<body onload="initialize();">
+		
+		<center>
+		
+			<h1 id="counter">0</h1>
+			<hr />
+			<button id="add-button" onclick="plusOne();">Add 1</button>
+			<button id="sub-button" onclick="minusOne();">Subtract 1</button>
+		</center>
+		
+	</body>
+	
+</html>

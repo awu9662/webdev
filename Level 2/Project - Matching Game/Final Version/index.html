@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hearthstone-styled Matching Game</title>
+
+    <!-- Fonts from google -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="main.css" />
+    <script type="text/javascript" src="index.js"></script>
+  </head>
+
+  <body onload="initialize();">
+    <div class="flex-container">
+      <div id="grid">
+        <img class="unflipped" id="card1" src="img/cardback.png" alt="card back" onclick="flipCard(0);" />
+        <img class="unflipped" id="card2" src="img/cardback.png" alt="card back" onclick="flipCard(1);" />
+        <img class="unflipped" id="card3" src="img/cardback.png" alt="card back" onclick="flipCard(2);" />
+        <img class="unflipped" id="card4" src="img/cardback.png" alt="card back" onclick="flipCard(3);" />
+
+        <img class="unflipped" id="card5" src="img/cardback.png" alt="card back" onclick="flipCard(4);" />
+        <img class="unflipped" id="card6" src="img/cardback.png" alt="card back" onclick="flipCard(5);" />
+        <img class="unflipped" id="card7" src="img/cardback.png" alt="card back" onclick="flipCard(6);" />
+        <img class="unflipped" id="card8" src="img/cardback.png" alt="card back" onclick="flipCard(7);" />
+
+        <img class="unflipped" id="card9" src="img/cardback.png" alt="card back" onclick="flipCard(8);" />
+        <img class="unflipped" id="card10" src="img/cardback.png" alt="card back" onclick="flipCard(9);" />
+        <img class="unflipped" id="card11" src="img/cardback.png" alt="card back" onclick="flipCard(10);" />
+        <img class="unflipped" id="card12" src="img/cardback.png" alt="card back" onclick="flipCard(11);" />
+
+        <img class="unflipped" id="card13" src="img/cardback.png" alt="card back" onclick="flipCard(12);" />
+        <img class="unflipped" id="card14" src="img/cardback.png" alt="card back" onclick="flipCard(13);" />
+        <img class="unflipped" id="card15" src="img/cardback.png" alt="card back" onclick="flipCard(14);" />
+        <img class="unflipped" id="card16" src="img/cardback.png" alt="card back" onclick="flipCard(15);" />
+      </div>
+
+      <div id="extra">
+        <p id="messages"></p>
+
+        <div>Score: <span id="scoreDisplay">0</span></div>
+
+        <div class="button-container">
+          <button onclick="reset();">Reset</button>
+          <!-- <button onclick="win();">Win the game</button> -->
+        </div>
+      </div>
+    </div>
+    <br />
+    <hr />
+
+    <div class="bottom-screen flex-container">
+      <button onclick="displayInstructions();" id="instruction-button">Instructions</button>
+      <span id="instruction-text">
+        This is a matching game. Your goal is to find all the matching pairs to 8 different pairs. Once you find all the
+        pairs, you win the game! Once you click on a card, you cannot unflip it; you can only have 2 cards flipped over
+        at most, and if a third card is flipped, the other cards are unflipped.
+        <br />
+        Everytime you flip a card, the score will increment by 1, meaning that the lowest (or best) score you can get is
+        16.
+        <br />
+        Extra: You can zoom in and zoom out to make the cards fit better.
+      </span>
+    </div>
+  </body>
+</html>

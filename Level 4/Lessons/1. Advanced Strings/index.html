@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>More Strings</title>
+    <script>
+      const INVALID_CHARS = "<>@#*";
+
+      function initialize() {
+        logOutputBox = document.getElementById("logOutput");
+        logFormObject = document.getElementById("logForm");
+        log = "Log ---";
+      }
+
+      function addMessage(msg) {
+        log += "<br />" + validate(msg);
+
+        display();
+      }
+
+      function isValid(msg) {
+        for (var i = 0; i < INVALID_CHARS.length; i++) {
+          if (msg.indexOf(INVALID_CHARS.charAt(i)) >= 0) {
+            return false;
+          }
+        }
+
+        return true;
+      }
+
+      function validate(msg) {
+        for (var i = 0; i < INVALID_CHARS.length; i++) {
+
+          var charIdx = msg.indexOf(INVALID_CHARS.charAt(i));
+          while (charIdx > 0) {
+            msg = msg.substring(0, charIdx) + msg.substring(charIdx + 1);
+            var charIdx = msg.indexOf(INVALID_CHARS.charAt(i));
+          }
+
+        }
+
+        return msg;
+      }
+
+      function display() {
+        logOutputBox.innerHTML = log;
+      }
+    </script>
+    <style>
+      div {
+        border: thick double black;
+        padding: 1%;
+      }
+
+      textarea {
+        width: 50%;
+        height: 200px;
+      }
+    </style>
+  </head>
+  <body onload="initialize();">
+    <h2>Diary</h2>
+    <form id="logForm">
+      <textarea name="logInput"></textarea>
+    </form>
+
+    <button onclick="addMessage(logFormObject.logInput.value);">Add to Log</button>
+
+    <hr>
+    <div id="logOutput">Log ---</div>
+  </body>
+</html>

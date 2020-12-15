@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+	<!-- this is a comment -->
+	<head>
+		<title>Add Subtract Multiply Divide</title>
+		<style></style>
+		<script>
+			function initialize() {
+				num1 = 3;
+				num2 = 7;
+			}
+			
+			function add() {
+				var result = num1 + num2;
+				console.log(result);
+			}
+			
+			function subtract() {
+				var result = num1 - num2;
+				console.log(result);
+			}
+			
+			function multiply() {
+				var result = num1 * num2;
+				console.log(result);
+			}
+			
+			function divide() {
+				var result = num1 / num2;
+				console.log(result);
+			}
+		</script>
+	</head>
+
+	<body onload = "initialize();">
+		<button onclick = "add();">Add the two numbers</button>
+		<button onclick = "subtract();">Subtract the two numbers</button>
+		<button onclick = "multiply();">Multiply the two numbers</button>
+		<button onclick = "divide();">Divide the two numbers</button>
+	</body>
+
+</html>

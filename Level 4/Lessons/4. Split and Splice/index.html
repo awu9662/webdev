@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Organisms Academy</title>
+    <script>
+      function initialize() {
+        myOrganismsOutput = document.getElementById("orgs");
+        firstSelectionOutput = document.getElementById("1st");
+        secondSelectionOutput = document.getElementById("2nd");
+        organismForm = document.getElementById("orgsForm");
+
+        myOrganisms = [
+          ORGANISM_LIST[0],
+          ORGANISM_LIST[1],
+          ORGANISM_LIST[2],
+          ORGANISM_LIST[3]
+        ];
+
+        firstSelection = NONE;
+        secondSelection = NONE;
+
+        display();
+      }
+
+      function selectOrganism() {
+        var idx = parseInt(organismForm.orgsel.value) - 1;
+
+        if (idx < 0 || idx >= myOrganisms.length) return;
+
+        if (firstSelection == NONE || (firstSelection != NONE && secondSelection != NONE)) {
+          firstSelection = myOrganisms[idx];
+          secondSelection = NONE;
+        } else {
+          secondSelection = myOrganisms[idx];
+          addNewOrganism();
+        }
+
+        organismForm.orgsel.value = "";
+        display();
+      }
+
+      function addNewOrganism() {
+        var newOrganism = findCombo(firstSelection, secondSelection);
+        if (newOrganism != NONE) {
+          // check new organism is not already in the list
+          if (myOrganisms.indexOf(newOrganism < 0)) {
+            myOrganisms.push(newOrganism);
+          }
+        }
+      }
+
+      function deleteOrganism() {
+        var idx = parseInt(orgsForm.orgsel.value) - 1;
+
+        if (idx < ORGANISM_OFFSET || idx >= myOrganisms.length) return;
+
+        myOrganisms.splice(idx, 1);
+
+        orgsForm.orgsel.value = "";
+        display();
+      }
+
+      function display() {
+        myOrganismsOutput.innerHTML = "1: " + getOrganismData(ORGANISM_LIST[0], NAME);
+
+        for (var i = 1; i < myOrganisms.length; i++) {
+          myOrganismsOutput.innerHTML += `<br />${i + 1}: ${getOrganismData(myOrganisms[i], NAME)}`;
+          firstSelectionOutput.innerHTML = getOrganismData(firstSelection, NAME);
+          secondSelectionOutput.innerHTML = getOrganismData(secondSelection, NAME);
+        }
+      }
+    </script>
+    <script src="alchemy.js"></script>
+    <link rel="stylesheet" type="text/css" href="alchemy.css">
+  </head>
+  <body onload="initialize();">
+
+    <h1>
+      <span>My Organisms Academy</span>
+    </h1>
+
+    <div class="box">
+      <h2>My Organisms</h2>
+      <div id="orgs"></div>
+      <hr>
+      <form id="orgsForm">
+        <input type="number" name="orgsel">
+      </form>
+      <button onclick="selectOrganism();">Select Organism</button>
+      <button onclick="deleteOrganism();">Delete Organism</button>
+      <hr>
+    </div>
+
+
+    <p>
+      <span id="1st"></span> AND <span id="2nd"></span>
+    </p>
+
+  </body>
+</html>

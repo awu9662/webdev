@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+	<!-- this is a comment -->
+	<head>
+		<title></title>
+		<style></style>
+		<script>
+			function initialize() {
+				counter = document.getElementById("counter");
+				number = 0;
+				negatives = false
+				negativeButton = document.getElementById("negativebtn");
+			}
+		
+			function plusOne() {
+				number++;
+				display();
+			}
+			
+			function minusOne() {
+				number--;
+				if (number < 0 && !negatives) {
+					number = 0;
+				}
+				display();
+			}
+			
+			function toggleNegatives() {
+				negatives = !negatives;
+				if (negatives == false) {
+					number = 0
+				}
+				display();
+			}
+			
+			function display() {
+				counter.innerHTML = number;
+				
+				if (negatives) negativeButton.innerHTML = "Negatives are ON";
+				else negativeButton.innerHTML = "Negatives are OFF";
+			}
+		</script>
+	</head>
+
+	<body onload="initialize();">
+		
+		<center>
+		
+			<h1 id="counter">0</h1>
+			<hr />
+			<button id="add-button" onclick="plusOne();">Add 1</button>
+			<button id="sub-button" onclick="minusOne();">Subtract 1</button>
+			<button id="negativebtn" onclick="toggleNegatives();">Negatives are OFF</button>
+		</center>
+		
+	</body>
+	
+</html>

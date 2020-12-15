@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <script>
+      function initialize() {
+
+      }
+    </script>
+    <style>
+      table {
+        border-left: thick solid #a9c;
+        border-right: thick solid #a9c;
+
+        border-top: thin solid #aaa;
+        border-bottom: thin solid #aaa;
+
+        border-collapse: collapse;
+        text-align: center;
+
+        width: 100%;
+      }
+
+      th {
+        border: thin solid rgb(60, 13, 170);
+        padding: 5px;
+        color: rgb(231, 5, 175);
+      }
+
+      td {
+        border: thin solid black;
+        padding: 3px;
+        width: 15%;
+      }
+
+      div.MLB {
+        writing-mode: vertical-rl;
+        text-orientation: upright;
+        font-size: 24px;
+      }
+
+      .flex-container {
+        display: flex;
+
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body onload="initialize();">
+    <div class="flex-container">
+
+    <table>
+      <tr>
+        <th rowspan="5"><div class="MLB">MLB</div></th>
+      </tr>
+      <tr>
+        <th colspan="3">American League</th>
+        <th colspan="3">National League</th>
+      </tr>
+      <tr>
+        <th>West</th>
+        <th>Central</th>
+        <th>East</th>
+        <th>West</th>
+        <th>Central</th>
+        <th>East</th>
+      </tr>
+      <tr>
+        <td>Astros</td>
+        <td>Indians</td>
+        <td>Yankees</td>
+        <td>Dodgers</td>
+        <td>Cubs</td>
+        <td>Mets</td>
+      </tr>
+      <tr>
+        <td>Angels</td>
+        <td>White Sox</td>
+        <td>Rays</td>
+        <td>Giants</td>
+        <td>Pirates</td>
+        <td>Nationals</td>
+      </tr>
+    </table>
+
+    </div>
+  </body>
+</html>

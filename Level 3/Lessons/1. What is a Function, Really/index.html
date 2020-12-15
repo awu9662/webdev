@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <script>
+      function initialize() {
+        numOutput = document.getElementById("numOutput");
+        number = 0;
+
+        rand = document.getElementById("rand");
+      }
+
+      function modifyNumber() {
+        number += modifier;
+        display();
+      }
+
+      function display() {
+        numOutput.innerHTML = number;
+      }
+
+      function displayRand() {
+        function getRandomInteger(lower, upper) {
+          var multiplier = upper - lower + 1;
+          var rnd = parseInt(Math.random() * multiplier + lower);
+
+          return rnd;
+        }
+
+        rand.innerHTML = getRandomInteger(-3, 3);
+      }
+
+      function displayRand2() {
+        function getRandomInteger2(lower, upper) {
+          return Math.floor(Math.random() * (upper - lower + 1) + lower);
+        }
+
+        rand.innerHTML = getRandomInteger2(-3, 3);
+      }
+    </script>
+    <style></style>
+  </head>
+  <body onload="initialize();">
+    <div id="numOutput">0</div>
+    <hr />
+
+    <button></button>
+
+    <div>
+      <button onclick="displayRand()">r1</button>
+      <button onclick="displayRand2();">r2</button>
+      <br />
+      <p id="rand">-1</p>
+    </div>
+  </body>
+</html>

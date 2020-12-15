@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+	<!-- this is a comment -->
+	<head>
+		<title>Roll Two Dice</title>
+		<style></style>
+		<script>
+			function initialize() {
+				die1 = document.getElementById("die1");
+				die2 = document.getElementById("die2");
+				total = document.getElementById("total");
+				rollDice();
+			}
+			function rollDice() {
+				roll1 = parseInt(Math.random() * 6 + 1);
+				roll2 = parseInt(Math.random() * 6 + 1);
+				display();
+			}
+			function display() {
+				die1.innerHTML = roll1;
+				die2.innerHTML = roll2;
+				total.innerHTML = roll1 + roll2;
+			}
+		</script>
+	</head>
+
+	<body onload="initialize();">
+		<button onclick="rollDice();">Roll two dice</button>
+		<p>Your rolls are <span id="die1"></span> and <span id="die2"></span>.</p>
+		<p>The total is <span id="total"></span>.</p>
+	</body>
+
+</html>

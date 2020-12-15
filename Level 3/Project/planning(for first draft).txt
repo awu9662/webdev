@@ -1,0 +1,17 @@
+- used only for draft 1
+
+1. deal 5 of each weapon to each player
+
+2. if the player clicks a card, move it on to the playing field, but only finialize the move if they click a submit button
+
+3. after submit, a function (with a parameter for the player or computer) will check if the player played the same 3 cards in a row (the card "breaks" for that player); use a variable that keeps track of the last card played, and another one for how many times in a row they played it
+
+4. if 3 doesn't happen then, the computer will play a random card
+
+5. like 3, two variables will be used to check if the computer played three cards in a row
+
+6. if a card breaks then the other player's card returns to him/her ELSE a function will evaluate who wins or if it is a tie
+
+7. update log based on what happened
+
+8. display cards on screen using the variable for each card and use document.createElement and document.getElementById("idOfElement").appendChild to add/remove cards from their hand

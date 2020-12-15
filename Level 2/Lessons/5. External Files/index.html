@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <link rel="stylesheet" href="my_css_test_file.css">
+  <script src="utilities.js"></script>
+  <script>
+    function initialize() {
+      numberOutput = document.getElementById('numout');
+      rndNum = 0;
+
+      display();
+    }
+
+    function changeNumber() {
+      rndNum = getRandomInteger(1, 10);
+      display();
+    }
+
+    function display() {
+      numberOutput.innerHTML = rndNum;
+    }
+  </script>
+  <style>
+
+  </style>
+</head>
+<body onload="initialize();">
+  <h1>This is a page about external files</h1>
+  <p id="numout"></p>
+  <button onclick="changeNumber();">Change random number</button>
+</body>
+</html>

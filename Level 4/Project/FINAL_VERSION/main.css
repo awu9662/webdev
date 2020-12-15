@@ -1,0 +1,146 @@
+body {
+  margin: 0;
+  margin-top: 5px;
+
+  background: rgb(246, 230, 248);
+}
+
+div {
+  text-align: center;
+}
+
+table {
+  border-collapse: collapse;
+
+  margin: auto;
+  border-radius: 6px;
+}
+
+td {
+  width: 150px;
+  height: 150px;
+  font-size: 3em;
+}
+
+.topRow td {
+  border-bottom: 5px solid rgba(77, 77, 240, .35);
+}
+
+.bottomRow td {
+  border-top: 5px solid rgba(77, 77, 240, .35);
+}
+
+td.leftColumn {
+  border-right: 5px solid rgba(77, 77, 240, .35);
+}
+
+td.rightColumn {
+  border-left: 5px solid rgba(77, 77, 240, .35);
+}
+
+button {
+  outline: none;
+}
+
+#board {
+  margin: 0px 150px 0px 150px;
+  padding: 25px 50px 50px 25px;
+  border: 2px dotted palevioletred;
+  border-radius: 30px;
+
+  background: rgb(240, 217, 243);
+}
+
+#gameContainer {
+  padding-top: 25px;
+  display: none;
+}
+
+#gameContainer button {
+  padding: 10px 25px 10px 25px;
+  border: 1px solid #a8baba;
+  margin: 10px;
+
+  background: rgb(243, 231, 245);
+}
+
+#gameContainer button:hover {
+  border: 1px solid #7a8585;
+}
+
+#startScreen {
+  font-family: "VT323", 'Roboto', sans-serif;
+  text-align: center;
+  font-size: 3em;
+}
+
+#startScreen button {
+  border: 3px solid lightslategray;
+  border-radius: 15px;
+  width: 75px;
+  height: 75px;
+  margin: 15px;
+  font-size: 1em;
+}
+
+#startScreen button:hover {
+  background: #778899;
+}
+
+#messages {
+  display: inline;
+  font-family: "VT323", "Roboto", sans-serif;
+  font-size: 24px;
+  padding: 5px;
+}
+
+#computerForm {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+}
+
+#bottomBar {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
+
+  font-family: "Roboto", sans-serif;
+}
+
+#bottomBarContent {
+  position: relative;
+
+  border: 2px solid rgba(77, 77, 240, 0.5);
+  border-bottom: 2px solid white;
+  background-color: rgb(252, 228, 255);
+
+  padding-bottom: 15px;
+
+  transition: transform .5s ease;
+}
+
+#bottomBarToggleButton {
+  display: block;
+  margin: auto;
+  position: relative;
+
+  background: rgb(252, 228, 255);
+
+  width: 100px;
+  bottom: -1px;
+  padding: 5px 25px 5px 25px;
+  border: 2px solid rgba(77, 77, 240, 0.5);
+  border-bottom: 2px solid rgb(252, 228, 255);
+
+  margin-bottom: 0;
+
+  transition: transform .5s ease;
+}
+
+#bottomBar button:hover {
+  border: 2px solid rgb(77, 77, 240);
+  border-bottom: 2px solid #e6e6e6;
+
+  background: rgb(240, 217, 243);
+}

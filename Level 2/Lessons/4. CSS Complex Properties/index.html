@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <script>
+    function initialize() {
+      textOutput = document.getElementById('textdiv');
+      fontSizeOutput = document.getElementById('sizeout');
+
+      fontSize = 24;
+
+      display();
+    }
+
+    function modifyFontSize(pts) {
+      fontSize += pts;
+
+      if (fontSize < 4) fontSize = 4;
+
+      display();
+    }
+
+    function display() {
+      fontSizeOutput.innerHTML = fontSize;
+      textOutput.style.fontSize = fontSize + "pt";
+    }
+  </script>
+  <style>
+    div {
+      font: normal 24pt "comic sans ms";
+    }
+  </style>
+</head>
+<body onload="initialize();">
+  <div id="textdiv">
+    Some font will be changed.
+  </div>
+  <hr>
+
+  <p>
+    <div>Current font size: <span id="sizeout"></span> points.</div>
+    <button onclick="modifyFontSize(1);">Font Size +1</button>
+    <button onclick="modifyFontSize(-1);">Font Size -1</button>
+    <button onclick="modifyFontSize(100);">Font Size +100</button>
+    <button onclick="modifyFontSize(-100);">Font Size -100</button>
+  </p>
+
+</body>
+</html>

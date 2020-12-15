@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!-- Partners: Daniel Lin, Ethan Seow -->
+<html lang="en">
+<head>
+  <title>Tic Tac Big Toe</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Satisfy|VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="main.css">
+  <script src="main.js"></script>
+  <script src="computer.js"></script>
+</head>
+
+<body onload="initialize();">
+
+  <div id="board">
+    <div id="gameContainer">
+      <table id="boardDisplay">
+        <tr class="topRow">
+          <td class="leftColumn" id="position0" onclick="makeMove(0);">0</td>
+          <td id="position1" onclick="makeMove(1);">0</td>
+          <td class="rightColumn" id="position2" onclick="makeMove(2);">0</td>
+        </tr>
+        <tr class="middleRow">
+          <td class="leftColumn" id="position3" onclick="makeMove(3);">0</td>
+          <td id="position4" onclick="makeMove(4);">0</td>
+          <td class="rightColumn" id="position5" onclick="makeMove(5);">0</td>
+        </tr>
+        <tr class="bottomRow">
+          <td class="leftColumn" id="position6" onclick="makeMove(6);">0</td>
+          <td id="position7" onclick="makeMove(7);">0</td>
+          <td class="rightColumn" id="position8" onclick="makeMove(8);">0</td>
+        </tr>
+      </table>
+      <br>
+      <div>
+        <p id="messages"></p>
+        <br>
+        <button onclick="reset();">Reset</button>
+      </div>
+    </div>
+
+    <div id="startScreen">
+      What do you want to be?
+      <br>
+      <button onclick="initializePlayer('x');">X</button>
+      <button onclick="initializePlayer('o');">O</button>
+      <form id='computerForm'>
+        "Human" computer <input type="checkbox" name='smart'>
+      </form>
+    </div>
+  </div>
+
+  <div id="bottomBar">
+      <button id="bottomBarToggleButton" onclick="toggleBottomBar();">Hide ↓</button>
+
+    <div id="bottomBarContent">
+
+      <h2>How to Play</h2>
+      <h4>
+        <span style="color: #f23a3a;">Tic Tac Toe</span>, with a <span style="font-family: 'Satisfy', cursive; color: #cf1f4b;">twist</span>.
+      </h4>
+
+      Basically the same as regular Tic Tac Toe, but you can take squares away from the other player. <br>
+      Play the same square twice to claim it for good. <br><br>
+
+      To take over an opposing square, just click on that square. <br>
+      You can only take it over if that square wasn't taken last turn by the opponent. <br>
+      <spans style="color: fuchsia">X</spans> always goes first. <br><br>
+
+      When "Human" Computer is checked, the computer will try to make the best move based on the current board.
+
+    </span>
+  </div>
+
+</body>
+</html>

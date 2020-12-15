@@ -1,0 +1,212 @@
+<!--
+  My Name: Aaron Wu
+  Group Member 1: Guhfran Shuhood
+  Group Member 2: Danish Qureshi
+-->
+<!DOCTYPE html>
+<html>
+  <!-- this is a comment -->
+  <head>
+    <title></title>
+    <style></style>
+    <script>
+      function initialize() {
+        scoreMessage = document.getElementById("score");
+        displayedClock = document.getElementById("clock");
+        statusMessage = document.getElementById("status");
+        keepGoingButton = document.getElementById("keepGoing");
+        guess = document.getElementById("guess");
+        log = document.getElementById("log"); // log of past codes
+        guide = document.getElementById("guide"); // instructions for how to play
+        guideButton = document.getElementById("guideButton");
+        showGuide = false; // only show instructions if player clicks on it
+        status2 = document.getElementById("status2"); // extra messages
+        status2Message = ""; // text of extra messages
+
+        // true is criminal guessed correctly
+        successful = false;
+
+        // true is criminal is arrested
+        arrested = false;
+
+        // tries before arrest
+        tries = 7;
+
+        // score = tries left over
+        score = 0;
+
+        // generate 3-digit code using 1, 2, and 3
+        var digit1 = Math.floor(Math.random() * 3 + 1).toString();
+        var digit2 = Math.floor(Math.random() * 3 + 1).toString();
+        var digit3 = Math.floor(Math.random() * 3 + 1).toString();
+        code = parseInt(digit1 + digit2 + digit3);
+
+        // current vault guess
+        criminalGuess = "";
+
+        display();
+      }
+
+      // add the numbers to the current guess to be displayed on screen
+      function enterNum(n) {
+        // if the user is successful in opening the vault, don't let them continue enter numbers
+        if (!successful) {
+          criminalGuess += n;
+          if (criminalGuess.length == 3) updateGuess();
+          display();
+        }
+      }
+
+      // updates vault after a complete guess
+      function updateGuess() {
+        if (tries > 0) tries -= 1;
+
+        if (parseInt(criminalGuess) > code) {
+          statusMessage.innerHTML = "Your combo is too high!";
+        } else if (parseInt(criminalGuess) < code) {
+          statusMessage.innerHTML = "Your combo is too low!";
+        } else {
+          successful = true;
+          gameOver();
+        }
+
+        // 5% chance of adding or subtracting one turn
+        if (Math.random() * 100 < 5) {
+          if (Math.random() * 100 < 50) {
+            // add one turn because of traffic jam
+            tries++;
+            status2Message = "Traffic jam! Police comes one turn later!";
+          } else {
+            // minus one turn because the police is in the area
+            if (tries > 0) tries--;
+            status2Message = "The police is in the area! They come one turn earlier!";
+          }
+        } else {
+          status2Message = "";
+        }
+
+        // display previous guesses on screen
+        updateLog();
+
+        criminalGuess = "";
+
+        if (tries == 0) {
+          gameOver();
+          arrested = true;
+        }
+
+        display();
+      }
+
+      // clears current guess if user clicks "Clear" button
+      function clearVault() {
+        criminalGuess = "";
+        display();
+      }
+
+      // update the log after each guess
+      function updateLog() {
+        log.innerHTML += criminalGuess + " ";
+        console.log(criminalGuess);
+      }
+
+      // decide if criminal enters or doesn't enters the vault after guesses reach 0
+      function gameOver() {
+        if (successful) {
+          statusMessage.innerHTML = "You opened the vault!";
+          score += tries;
+        } else {
+          statusMessage.innerHTML = "Oh no! You got arrested!";
+          score = 0;
+        }
+
+        keepGoingButton.innerHTML = "Keep going?";
+
+        display();
+      }
+
+      // the "Keep going?" button will reset the vault if the vault is cracked
+      function goAgain() {
+        if (successful || arrested) {
+          reset();
+          statusMessage.innerHTML = "Welcome to the Vault!";
+        }
+      }
+
+      // reset the vault and generate new code
+      function reset() {
+        tries = 7;
+        criminalGuess = "";
+        successful = false;
+        arrested = false;
+        keepGoingButton.innerHTML = "----------";
+        status2Message = "";
+        log.innerHTML = "";
+
+        var digit1 = Math.floor(Math.random() * 3 + 1).toString();
+        var digit2 = Math.floor(Math.random() * 3 + 1).toString();
+        var digit3 = Math.floor(Math.random() * 3 + 1).toString();
+        code = parseInt(digit1 + digit2 + digit3);
+
+        display();
+      }
+
+      // update screen
+      function display() {
+        displayedClock.innerHTML = "Tries remaining: " + tries;
+        if (criminalGuess == "") guess.innerHTML = "---";
+        else guess.innerHTML = criminalGuess;
+        scoreMessage.innerHTML = "Score: " + score;
+        status2.innerHTML = status2Message;
+      }
+
+      // instructions on what to do
+      function instructions() {
+        showGuide = !showGuide;
+        if (showGuide) {
+          guide.innerHTML =
+            "You are a bank robber trying to rob a bank. The vault has three numbers: 1, 2, and 3. To break the vault you have to guess the correct combination. Once you hit three digits, the vault will automatically take your guess, but you can clear it before then. You have seven attempts before the police arrives. Good luck!<br /><br />Once you break the vault, you can try your luck again at another one to increase your score. The guesses you have left is added to your score after each vault break . But be careful, if you get arrested you score goes back to 0!";
+          guideButton.innerHTML = "Hide";
+        } else {
+          guide.innerHTML = "";
+          guideButton.innerHTML = "How to Play";
+        }
+      }
+    </script>
+  </head>
+
+  <body onload="initialize();">
+    <div id="score"></div>
+    <div id="clock"></div>
+    <div id="guess"></div>
+    <br />
+
+    <div>
+      <button onclick="enterNum('1');">1</button>
+      <button onclick="enterNum('2');">2</button>
+      <button onclick="enterNum('3');">3</button>
+    </div>
+
+    <div>
+      <br />
+      <button onclick="clearVault();">Clear</button>
+    </div>
+
+    <div>
+      <p id="status">Welcome to the Vault!</p>
+
+      <p id="status2"></p>
+    </div>
+
+    <button id="keepGoing" onclick="goAgain();">----------</button>
+    <hr />
+
+    <div>Log: <span id="log"></span></div>
+
+    <hr />
+    <div>
+      <button onclick="instructions();" id="guideButton">How to Play</button>
+      <p id="guide"></p>
+    </div>
+  </body>
+</html>

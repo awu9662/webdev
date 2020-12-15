@@ -1,0 +1,142 @@
+table {
+  margin: auto;
+}
+
+td {
+  text-align: center;
+}
+
+table#log {
+  background-color: white;
+  border-collapse: collapse;
+}
+
+img {
+  height: 75px;
+  width: 75px;
+  margin: 1%;
+}
+
+#bottom {
+  position: fixed;
+  bottom: 10px;
+  width: 99%;
+  bottom: 5%;
+  text-align: center;
+}
+
+#bottom img {
+  cursor: pointer;
+}
+
+table.cardTable td {
+  padding: 5px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+#bottom .imageRow td:hover {
+  background-color: pink;
+  border-radius: 10%;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+}
+
+#sidenav-right {
+  height: 100%;
+  width: 22%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  overflow: auto;
+  border: medium solid black;
+}
+
+#sidenav-right th {
+  padding: 2px;
+
+}
+
+#sidenav-right td {
+  padding: 2px;
+  border-top: thin solid #10f0ff;
+  border-bottom: thin solid #10f0ff;
+}
+
+#sidenav-left {
+  font-family: 'Roboto', sans-serif;
+  height: 100%;
+  width: 22%;
+  position: fixed;
+  padding: 1%;
+  top: 0;
+  left: 0;
+  overflow: auto;
+  border: medium solid black;
+  text-align: center;
+}
+
+#sidenav-left h2 {
+  color: brown;
+}
+
+#sidenav-left h3, h4 {
+  text-align: center;
+  color: cornflowerblue;
+}
+
+#sidenav-left button {
+  background-color: rgba(100, 148, 237, 0.555);
+}
+
+button {
+  border-style: none;
+  padding: 10px 20px 10px 20px;
+  background-color: rgb(224, 224, 224);
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: lightsteelblue;
+  font-family: 'Supermercado One', cursive;
+}
+
+button#buildModeButton {
+  background-color: rgba(90, 255, 23, 0.5);
+}
+
+.center {
+  padding-top: 1%;
+  text-align: center;
+  margin: auto;
+}
+
+.center img {
+  height: 12%;
+  width: 12%;
+}
+
+.forms {
+  text-align: right;
+}
+
+input {
+  margin: 1%;
+  size: 1;
+}
+
+#hideButtonLeftContainer {
+  position: fixed;
+  text-align: left;
+  top: 2px;
+  left: 25%;
+}
+
+#hideButtonRightContainer {
+  position: fixed;
+  text-align: left;
+  top: 2px;
+  right: 23%;
+}

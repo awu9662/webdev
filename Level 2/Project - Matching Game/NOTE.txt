@@ -1,0 +1,2 @@
+NOTE: There are no images for the different versions except for the final version
+because the img folder would take up too much space if duplicated many times.

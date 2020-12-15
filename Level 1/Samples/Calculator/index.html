@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+	<!-- this is a comment -->
+	<head>
+		<title></title>
+		<style></style>
+		<script>
+			function initialize() {
+				screen = document.getElementById("output");
+				
+				// the two numbers used for the operation
+				num1 = "";
+				num2 = "";
+				result = "0";
+				
+				// string is equal to the user's operation
+				operation = "";
+				
+				// true if user clicks any operation
+				clickedOperation = false;
+				
+				// true if user clicks Enter
+				calculated = false;
+				
+				display();
+				screen.innerHTML = '0';
+			}
+			
+			function number(n) {
+				if (!clickedOperation) {
+					num1 += n;
+				} else {
+					num2 += n;
+				}
+				display();
+			}
+			
+			function operator(opr) {
+				operation = opr;
+				clickedOperation = true;
+				display();
+			}
+			
+			function calculate() {
+				if (operation == '+') {
+					result = parseInt(num1) + parseInt(num2);
+				} else if (operation == '-') {
+					result = parseInt(num1) - parseInt(num2);
+				} else if (operation == '*') {
+					result = parseInt(num1) * parseInt(num2);
+				} else if (operation == '/') {
+					result = parseInt(num1) / parseInt(num2);
+				}
+				
+				calculated = true;
+				display();
+			}
+			
+			function display() {
+				if (!clickedOperation) {
+					screen.innerHTML = num1;
+				} else if (!calculated) {
+					screen.innerHTML = num2;
+				} else {
+					screen.innerHTML = result;
+				}
+				
+				if (calculated) reset();
+			}
+			
+			function reset() {
+				num1 = "";
+				num2 = "";
+				result = "0";
+				
+				operation = "";
+				
+				clickedOperation = false;
+				
+				calculated = false;
+			}
+		</script>
+	</head>
+
+	<body onload="initialize();">
+		<center>
+		
+		<div id="output"></div>
+		<hr />
+		
+		<div>
+			<button onclick="number('7');">7</button>
+			<button onclick="number('8');">8</button>
+			<button onclick="number('9');">9</button>
+			<button onclick="operator('/');">/</button>
+		</div>
+		
+		<br />
+		<div>
+			<button onclick="number('4');">4</button>
+			<button onclick="number('5');">5</button>
+			<button onclick="number('6');">6</button>
+			<button onclick="operator('*');">*</button>
+		</div>
+		
+		<br />
+		<div>
+			<button onclick="number('1');">1</button>
+			<button onclick="number('2');">2</button>
+			<button onclick="number('3');">3</button>
+			<button onclick="operator('+');">+</button>
+		</div>
+		
+		<br />
+		<div>
+			<button onclick="number('0');">0</button>
+			<button onclick="number('0');">0</button>
+			<button onclick="">.</button>
+			<button onclick="operator('-');">-</button>
+		</div>
+		
+		<br />
+		<div>
+			<button onclick="calculate();">Enter</button>
+		</div>
+		
+		</center>
+	</body>
+
+</html>

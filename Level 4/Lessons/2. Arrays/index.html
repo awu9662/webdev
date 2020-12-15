@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Alist</title>
+    <script>
+      function initialize() {
+        arrayOutput = document.getElementById("divOut");
+
+        theList = [];
+
+        var randomLength = getRandomInteger(50, 100);
+
+        for (var i = 0; i < randomLength; i++) {
+          theList[theList.length] = getRandomInteger(-10, 10);
+        }
+
+        display();
+      }
+
+      function getRandomInteger(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+
+      function display() {
+        arrayOutput.innerHTML = "";
+
+        for (var i = 0; i < theList.length; i++) {
+          arrayOutput.innerHTML += i + ": " + theList[i] + "<br />";
+        }
+      }
+    </script>
+    <style>
+      body {
+        font: bold 18pt calibri;
+      }
+    </style>
+  </head>
+  <body onload="initialize();">
+    <div id="divOut"></div>
+  </body>
+</html>

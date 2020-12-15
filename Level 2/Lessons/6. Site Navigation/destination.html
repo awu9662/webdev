@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <script>
+      function initialize() {
+        visitsOut = document.getElementById("visits");
+        console.log(sessionStorage)
+        if (!sessionStorage.numVisits) {
+          sessionStorage.numVisits = 0;
+        } else {
+          sessionStorage.numVisits++;
+        }
+
+        display();
+      }
+
+      function display() {
+        visitsOut.innerHTML = sessionStorage.numVisits;
+      }
+    </script>
+    <style></style>
+  </head>
+  <body onload="initialize();">
+    <h3>This is the destination page</h3>
+    <h2>I have visited here <span id="visits"></span> times.</h2>
+    <a href="index.html">Go back to home page?</a>
+  </body>
+</html>

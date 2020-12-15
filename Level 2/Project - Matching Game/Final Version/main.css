@@ -1,0 +1,77 @@
+.flex-container {
+	display: flex;
+	flex-direction: row;
+}
+
+.button-container {
+	margin-top: 5%;
+}
+
+.bottom-screen {
+	margin: 0% 8% 0% 2%;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.1em;
+  background-color: #feedca;
+}
+
+img {
+  height: 150px;
+  width: 100px;
+}
+
+img.unflipped:hover {
+	background-color: #A0522D;
+}
+
+div#grid {
+  border-style: inset;
+  border-color: #FFE4C4;
+  position: relative;
+
+  margin-left: 2%;
+
+  padding: 2% 2% 2% 5%;
+  width: 36%;
+
+  background-image: url("img/background.jpeg");
+}
+
+div#extra {
+	margin: 20% 0% 10% 5%;
+}
+
+button {
+	background-color: #d7a98c;
+	border: none;
+	padding: 8px;
+
+	text-align: center;
+	font-family: "Ubuntu";
+	font-size: 0.9em;
+
+}
+
+button:hover {
+	background-color: #D2691E;
+}
+
+#scoreDisplay {
+	color: #00a86b;
+}
+
+#messages {
+	font-size: 1.2em;
+	margin: 0% 0% 25px 0%;
+	position: relative;
+	color: #A52A2A;
+}
+
+#instruction-text {
+	display: none;
+	text-align: left;
+	padding: 2%;
+	line-height: 1.4em;
+}

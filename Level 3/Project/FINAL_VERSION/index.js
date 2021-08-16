@@ -444,7 +444,7 @@ function logLastMove(playerCard, computerCard, lastRoundStatus) {
   // insert appropriate image
   newCell = newTr.insertCell();
   cardImage = document.createElement("img");
-  cardImage.src = "img/" + playerCardToInsert + ".png";
+  cardImage.src = "img/" + playerCardToInsert + ".PNG";
   newCell.appendChild(cardImage);
 
   newCell = newTr.insertCell();
@@ -458,7 +458,7 @@ function logLastMove(playerCard, computerCard, lastRoundStatus) {
 
   newCell = newTr.insertCell();
   cardImage = document.createElement("img");
-  cardImage.src = "img/" + computerCardToInsert + ".png";
+  cardImage.src = "img/" + computerCardToInsert + ".PNG";
   newCell.appendChild(cardImage);
 }
 
@@ -594,21 +594,21 @@ function display() {
 
   // enlarge last played cards
   if (lastPlayerCard == "rock") {
-    playerCardToDisplay.innerHTML = "<img src='img/rock.png' />";
+    playerCardToDisplay.innerHTML = "<img src='img/rock.PNG' />";
   } else if (lastPlayerCard == "paper") {
-    playerCardToDisplay.innerHTML = "<img src='img/paper.png' />";
+    playerCardToDisplay.innerHTML = "<img src='img/paper.PNG' />";
   } else if (lastPlayerCard == "scissors") {
-    playerCardToDisplay.innerHTML = "<img src='img/scissors.png' />";
+    playerCardToDisplay.innerHTML = "<img src='img/scissors.PNG' />";
   } else {
     playerCardToDisplay.innerHTML = "";
   }
 
   if (lastComputerCard == "rock") {
-    computerCardToDisplay.innerHTML = "<img src='img/rock.png' />";
+    computerCardToDisplay.innerHTML = "<img src='img/rock.PNG' />";
   } else if (lastComputerCard == "paper") {
-    computerCardToDisplay.innerHTML = "<img src='img/paper.png' />";
+    computerCardToDisplay.innerHTML = "<img src='img/paper.PNG' />";
   } else if (lastComputerCard == "scissors") {
-    computerCardToDisplay.innerHTML = "<img src='img/scissors.png' />";
+    computerCardToDisplay.innerHTML = "<img src='img/scissors.PNG' />";
   } else {
     computerCardToDisplay.innerHTML = "";
   }
